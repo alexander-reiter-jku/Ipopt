@@ -30,6 +30,15 @@
 # endif
 #endif
 
+// Factory to facilitate creating Journalist objects from within a DLL
+Ipopt::StreamJournal * StreamJournalFactory(const std::string& name, Ipopt::EJournalLevel default_level, std::ostream* os, Ipopt::EJournalCategory category, Ipopt::EJournalLevel level)
+{
+	Ipopt::StreamJournal* jrnl_raw = new Ipopt::StreamJournal(name, default_level);
+	jrnl_raw->SetOutputStream(os);
+	jrnl_raw->SetPrintLevel(category, level);
+	return jrnl_raw;
+}
+
 namespace Ipopt
 {
 

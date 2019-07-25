@@ -295,6 +295,6 @@ namespace Ipopt
 
 } // namespace Ipopt
 
-extern "C" IPOPT_EXPORT(class Ipopt::IpoptApplication *) IpoptApplicationFactory();
+extern "C" IPOPT_EXPORT(class Ipopt::SmartPtr<Ipopt::IpoptApplication> *) IpoptApplicationFactory(bool create_console_out = true, bool create_empty = false);
 
 #endif

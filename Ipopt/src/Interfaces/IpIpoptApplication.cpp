@@ -43,10 +43,11 @@
 #include <fstream>
 
 // Factory to facilitate creating IpoptApplication objects from within a DLL
-
-Ipopt::IpoptApplication * IpoptApplicationFactory()
+Ipopt::SmartPtr<Ipopt::IpoptApplication> * IpoptApplicationFactory(bool create_console_out, bool create_empty )
 {
-  return new Ipopt::IpoptApplication;
+	Ipopt::SmartPtr<Ipopt::IpoptApplication> *app = new Ipopt::SmartPtr<Ipopt::IpoptApplication>();
+	*app = new Ipopt::IpoptApplication(create_console_out, create_empty);
+	return app;
 }
 
 namespace Ipopt

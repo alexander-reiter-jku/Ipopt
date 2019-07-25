@@ -9,6 +9,18 @@
 #ifndef __IPJOURNALIST_HPP__
 #define __IPJOURNALIST_HPP__
 
+#ifndef IPOPT_EXPORT
+#ifdef _MSC_VER
+#ifdef IPOPT_DLL
+#define IPOPT_EXPORT(type) __declspec(dllexport) type __cdecl
+#else
+#define IPOPT_EXPORT(type) type __cdecl
+#endif
+#else
+#define IPOPT_EXPORT(type) type
+#endif
+#endif
+
 #include "IpoptConfig.h"
 #include "IpTypes.hpp"
 #include "IpReferenced.hpp"
@@ -493,5 +505,7 @@ namespace Ipopt
     char buffer_[32768];
   };
 }
+
+extern "C" IPOPT_EXPORT(class Ipopt::StreamJournal *) StreamJournalFactory(const std::string& name, Ipopt::EJournalLevel default_level, std::ostream* os, Ipopt::EJournalCategory category, Ipopt::EJournalLevel level);
 
 #endif

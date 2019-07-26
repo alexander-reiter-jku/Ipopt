@@ -106,7 +106,8 @@ am__objects_1 = dbdsqr.lo dgebal.lo dgebak.lo dgebd2.lo dgebrd.lo \
 	dtrti2.lo dtrtri.lo dtrtrs.lo ieeeck.lo iladlc.lo iladlr.lo \
 	ilaenv.lo iparmq.lo sgetf2.lo sgetrf.lo slamch.lo slaswp.lo \
 	xerbla.lo zgetf2.lo zgetrf.lo zlacgv.lo zlacpy.lo zlaev2.lo \
-	zlaswp.lo zpotf2.lo zrot.lo zsymv.lo zsyr.lo zsytri.lo
+	zlaswp.lo zpotf2.lo zrot.lo zsymv.lo zsyr.lo zsytri.lo \
+	dgeequ.lo dlaqge.lo dtrcon.lo dlantr.lo dlacn2.lo dlatrs.lo drscl.lo
 am_libcoinlapack_la_OBJECTS = $(am__objects_1)
 libcoinlapack_la_OBJECTS = $(am_libcoinlapack_la_OBJECTS)
 DEFAULT_INCLUDES = -I. -I$(srcdir)
@@ -457,7 +458,14 @@ LAPACK_FILES = \
 	zrot.f \
 	zsymv.f \
 	zsyr.f \
-	zsytri.f
+	zsytri.f \
+	dgeequ.f \
+	dlaqge.f \
+	dtrcon.f \
+	dlantr.f \
+	dlacn2.f \
+	dlatrs.f \
+	drscl.f
 
 libcoinlapack_la_SOURCES = $(LAPACK_FILES)
 @DEPENDENCY_LINKING_TRUE@libcoinlapack_la_LIBADD = $(LAPACKLIB_LIBS)

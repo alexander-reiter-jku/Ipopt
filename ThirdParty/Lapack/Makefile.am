@@ -171,7 +171,14 @@ LAPACK_FILES = \
 	zrot.f \
 	zsymv.f \
 	zsyr.f \
-	zsytri.f
+	zsytri.f \
+	dgeequ.f \
+	dlaqge.f \
+	dtrcon.f \
+	dlantr.f \
+	dlacn2.f \
+	dlatrs.f \
+	drscl.f
 
 libcoinlapack_la_SOURCES = $(LAPACK_FILES)
 
